@@ -186,4 +186,10 @@ int sigsuspend(const sigset_t*)
     dbgprintf("FIXME: Implement sigsuspend()\n");
     ASSERT_NOT_REACHED();
 }
+
+int sigwait(const sigset_t*, int*)
+{
+    dbgprintf("FIXME: Implement sigwait()\n");
+    ASSERT_NOT_REACHED();
+}
 }
