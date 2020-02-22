@@ -198,4 +198,10 @@ int dirfd(DIR* dirp)
     ASSERT(dirp);
     return dirp->fd;
 }
+
+void rewinddir(DIR* dirp)
+{
+    dirp->nextptr = dirp->buffer;  
+    create_struct_dirent((sys_dirent*)dirp->nextptr, &dirp->cur_ent);
+}
 }
