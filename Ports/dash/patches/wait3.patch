@@ -1,0 +1,12 @@
+diff -Nru dash-0.5.10/src/jobs.c dash-0.5.10_port/src/jobs.c
+--- dash-0.5.10/src/jobs.c	2018-04-19 20:19:29.000000000 +1000
++++ dash-0.5.10_port/src/jobs.c	2020-02-22 13:02:41.835975030 +1100
+@@ -1140,7 +1140,7 @@
+ 
+ 	do {
+ 		gotsigchld = 0;
+-		err = wait3(status, flags, NULL);
++		err = waitpid((pid_t)-1, status, flags);
+ 		if (err || !block)
+ 			break;
+ 

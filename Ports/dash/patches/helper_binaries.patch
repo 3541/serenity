@@ -1,0 +1,28 @@
+diff -Nru dash-0.5.10/config.h.in dash-0.5.10_port/config.h.in
+--- dash-0.5.10/config.h.in	2018-05-03 18:48:01.000000000 +1000
++++ dash-0.5.10_port/config.h.in	2020-02-22 13:01:33.780971291 +1100
+@@ -180,6 +180,7 @@
+ /* Define to 1 if you need to in order for `stat' and other things to work. */
+ #undef _POSIX_SOURCE
+ 
++#ifndef __HELPER
+ /* 64-bit operations are the same as 32-bit */
+ #undef fstat64
+ 
+@@ -194,3 +195,4 @@
+ 
+ /* 64-bit operations are the same as 32-bit */
+ #undef stat64
++#endif
+diff -Nru dash-0.5.10/src/Makefile.in dash-0.5.10_port/src/Makefile.in
+--- dash-0.5.10/src/Makefile.in	2018-05-03 18:47:52.000000000 +1000
++++ dash-0.5.10_port/src/Makefile.in	2020-02-22 13:01:16.128970321 +1100
+@@ -692,7 +692,7 @@
+ mksyntax: token.h
+ 
+ $(HELPERS): %: %.c
+-	$(COMPILE_FOR_BUILD) -o $@ $<
++	$(COMPILE_FOR_BUILD) -D__HELPER -o $@ $<
+ 
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.

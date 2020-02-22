@@ -1,0 +1,34 @@
+diff -Nru dash-0.5.10/src/system.c dash-0.5.10_port/src/system.c
+--- dash-0.5.10/src/system.c	2014-09-28 18:19:32.000000000 +1000
++++ dash-0.5.10_port/src/system.c	2020-02-22 13:03:15.104976858 +1100
+@@ -27,18 +27,18 @@
+  */
+ 
+ #ifndef HAVE_ISALPHA
+-#define isalnum _isalnum
+-#define iscntrl _iscntrl
+-#define islower _islower
+-#define isspace _isspace
+-#define isalpha _isalpha
+-#define isdigit _isdigit
+-#define isprint _isprint
+-#define isupper _isupper
+-#define isblank _isblank
+-#define isgraph _isgraph
+-#define ispunct _ispunct
+-#define isxdigit _isxdigit
++#define _isalnum isalnum
++#define _iscntrl iscntrl
++#define _islower islower
++#define _isspace isspace
++#define _isalpha isalpha
++#define _isdigit isdigit
++#define _isprint isprint
++#define _isupper isupper
++#define _isblank isblank
++#define _isgraph isgraph
++#define _ispunct ispunct
++#define _isxdigit isxdigit
+ #include <ctype.h>
+ #undef isalnum
+ #undef iscntrl
