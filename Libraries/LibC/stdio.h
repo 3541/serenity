@@ -61,6 +61,7 @@ int fseek(FILE*, long offset, int whence);
 int fgetpos(FILE*, fpos_t*);
 int fsetpos(FILE*, const fpos_t*);
 long ftell(FILE*);
+off_t ftello(FILE*);
 char* fgets(char* buffer, int size, FILE*);
 int fputc(int ch, FILE*);
 int fileno(FILE*);

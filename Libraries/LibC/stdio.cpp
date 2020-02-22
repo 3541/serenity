@@ -349,11 +349,21 @@ int fseek(FILE* stream, long offset, int whence)
     return 0;
 }
 
+int fseeko(FILE* stream, off_t offset, int whence)
+{
+    return fseek(stream, offset, whence);
+}
+
 long ftell(FILE* stream)
 {
     assert(stream);
     fflush(stream);
     return lseek(stream->fd, 0, SEEK_CUR);
+}
+
+off_t ftello(FILE* stream)
+{
+    return ftell(stream);
 }
 
 int fgetpos(FILE* stream, fpos_t* pos)
